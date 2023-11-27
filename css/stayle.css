@@ -1,0 +1,228 @@
+*{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+:root{
+--color-c:#ccc;
+--colo-aq:aqua;
+}
+a{
+    text-decoration: none;
+}
+body{
+    font-family: 'Ubuntu', sans-serif;
+    height:95.7vh; 
+    background-image: url(../image/go2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+@media (max-width:767px){
+    .page{
+   max-width: 100%;
+    }
+    body{
+        margin: 0 25px;
+        background-position: center;
+    }
+    .page form .check {
+width: 100%;
+flex-wrap: wrap;
+text-align: center;
+    }
+    .page form .check label{
+        display: block;
+        margin: auto;
+    }
+    .page form .check a{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .page form p{
+       line-height: 1.5;
+    }
+ 
+    .parent .box .face{
+        display: none;
+    }
+}
+
+.page{
+    position: relative;
+    margin: auto;
+    background-color:rgb(0 0 0 / 60%);
+    width: 500px;
+    padding: 60px 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 5px var(--color-c);
+    transition: 0.3s;
+}
+.page:hover{
+transform: scale(101%);
+box-shadow: 0 0 10px 5px var(--colo-aq);
+}
+.page h2{
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 60px;
+    color: white;
+}
+.page form{
+    width: 100%;
+}
+.page form .input-box{
+    position: relative;
+    margin: 30px 0;
+}
+.page form .input-box i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right:25px;
+    color:var(--colo-aq);
+    z-index: 2;
+}
+.page form .input-box input{
+    position: relative;
+    padding:15px;
+    width: 100%;
+    height: 50px;
+    border-radius: 40px;
+    border: 2px solid var(--color-c);
+    background-image: linear-gradient(to right, rgb(8, 7, 54), #000000fb);
+    caret-color:var(--colo-aq);
+    color: white;
+}
+.page form .input-box label{
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    transition: 0.5s ease-in;
+    font-size: 1em;
+}
+.page form .input-box input:focus~label,
+.page form .input-box input:valid~label{
+    top:-10px;
+    font-size: 0.8em;
+    
+}
+.page form .check{
+display: flex;
+justify-content: space-between;
+margin: 25px 0 15px 0;
+color:white;
+font-weight: bold;
+}
+.page form .check input[type="checkbox"]{
+    margin-right: 5px;
+}
+.page form .check a{
+color: white;
+}
+.page form .check a:hover{
+    color:var(--colo-aq);
+    text-decoration: underline;
+}
+.page form button{
+    width: 100%;
+    height: 50px;
+    border-radius: 40px;
+    margin-bottom: 15px;
+    color: white;
+    background-image:linear-gradient(to right, rgb(8, 7, 54), #000000fb);
+    font-size: 20px;
+    cursor: pointer;
+    border: 2px solid white;
+}
+.page form button:hover{
+  border-color:var(--color-c);
+  box-shadow: 0 0 5px 2px var(--color-c);
+  color:var(--colo-aq);
+}
+.page form p{
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+.page form p a{
+    color: white;
+    font-weight: bold;
+}
+.page form p a:hover{
+    color:var(--colo-aq);
+    text-decoration: underline;
+}
+
+/* transform 3d */
+.parent{
+    width: 80px;
+    margin: 40px 80%;
+    perspective: 600px;
+}
+.box{
+   transform-style: preserve-3d;
+   width: 80px;
+   height: 80px;
+   position: relative;
+   transition: transform 1s;
+   transform-origin: right center;
+}
+.box:hover {
+    transform: translateX(-100%) rotateY(-180deg);
+}
+.box .face{
+position: absolute;
+width: 100%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+backface-visibility: hidden;
+border-radius: 50%;
+}
+.box .face img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.box .back{
+    font-weight: bold;
+background-color:var(--colo-aq);
+transform: rotateY(180deg);
+}
+
+/* Typewriter Effects */
+.writer p{
+    color: white;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    font-size: 30px;
+    border-right: 2px solid white;
+    width: 350px;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: control-width 2s steps(21) 1.7s both, blink 0.6s infinite;
+}
+ @keyframes control-width{
+    from {
+        width: 0;
+      }
+      to {
+        width: 350pxpx;
+      }
+ }
+ @keyframes blink {
+    from {
+      border-right-color:var(--colo-aq);
+    }
+    to {
+      border-right-color: transparent;
+    }
+  }
